@@ -21,10 +21,18 @@ class VoyagesController extends AbstractController {
     
     #[Route('/voyages', name: 'voyages')]
     public function index() : Response {
-        $visites = $this->repository->findAll();
+        $visites = $this->repository->findAllOrderBy("datecreation", "DESC");
         
         return $this->render("pages/voyages.html.twig", [
             'visites' => $visites
+        ]);
+    }
+    
+    #[Route('/voyages/sort/{champ}/{order}', name: "villeSort")]
+    public function sort($champ, $order) : Response {
+        $visites = $this->repository->findAllOrderBy($champ, $order);
+        return $this->render("pages/voyages.html.twig", [
+            "visites" => $visites
         ]);
     }
     

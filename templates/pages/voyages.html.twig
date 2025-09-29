@@ -4,10 +4,51 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Ville</th>
-                <th scope="col">Pays</th>
-                <th scope="col">Note</th>
-                <th scope="col">Date</th>
+                <th scope="col"> Ville
+                    <a 
+                        class="btn btn-primary"
+                        href=" {{ path("villeSort", {champ: "ville", order: "ASC"}) }} "
+                        role="button"
+                        > < </a>
+                    <a 
+                        class="btn btn-primary"
+                        href=" {{ path("villeSort", {champ: "ville", order: "DESC"}) }} "
+                        role="button"
+                        > > </a>
+                </th>
+                <th scope="col"> Pays
+                    <a 
+                        class="btn btn-primary"
+                        href=" {{ path("villeSort", {champ: "pays", order: "ASC"}) }} "
+                        role="button"
+                        > < </a>
+                    <a 
+                        class="btn btn-primary"
+                        href=" {{ path("villeSort", {champ: "pays", order: "DESC"}) }} "
+                        role="button"
+                        > > </a></th>
+                <th scope="col"> Note
+                    <a 
+                        class="btn btn-primary"
+                        href=" {{ path("villeSort", {champ: "note", order: "ASC"}) }} "
+                        role="button"
+                        > < </a>
+                    <a 
+                        class="btn btn-primary"
+                        href=" {{ path("villeSort", {champ: "note", order: "DESC"}) }} "
+                        role="button"
+                        > > </a></th>
+                <th scope="col"> Date
+                    <a 
+                        class="btn btn-primary"
+                        href=" {{ path("villeSort", {champ: "datecreation", order: "ASC"}) }} "
+                        role="button"
+                        > < </a>
+                    <a 
+                        class="btn btn-primary"
+                        href=" {{ path("villeSort", {champ: "datecreation", order: "DESC"}) }} "
+                        role="button"
+                        > > </a></th>
             </tr>
         </thead>
         <tbody>
