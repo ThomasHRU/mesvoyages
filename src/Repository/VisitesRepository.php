@@ -63,4 +63,14 @@ class VisitesRepository extends ServiceEntityRepository {
         $this->getEntityManager()->remove($visite);
         $this->getEntityManager()->flush();
     }
+    
+    /**
+     * 
+     * @param Visites $visite
+     * @return void
+     */
+    public function add(Visites $visite) :void {
+        $this->getEntityManager()->persist($visite);
+        $this->getEntityManager()->flush();
+    }
 }
