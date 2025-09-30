@@ -9,6 +9,7 @@ namespace App\Controller;
 
 use App\Repository\VisitesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -18,30 +19,39 @@ use Symfony\Component\Routing\Annotation\Route;
  * @author thoma
  */
 class VoyagesController extends AbstractController {
-    
+
     #[Route('/voyages', name: 'voyages')]
-    public function index() : Response {
+    public function index(): Response {
         $visites = $this->repository->findAllOrderBy("datecreation", "DESC");
-        
+
         return $this->render("pages/voyages.html.twig", [
-            'visites' => $visites
+                    'visites' => $visites
         ]);
     }
-    
-    #[Route('/voyages/sort/{champ}/{order}', name: "villeSort")]
-    public function sort($champ, $order) : Response {
+
+    #[Route('/voyages/filter/{champ}/{order}', name: "voyagesFilter")]
+    public function filter($champ, $order): Response {
         $visites = $this->repository->findAllOrderBy($champ, $order);
         return $this->render("pages/voyages.html.twig", [
-            "visites" => $visites
+                    "visites" => $visites
         ]);
     }
-    
+
+    #[Route('voyages/sort/{champ}', name: "voyagesSort")]
+    public function sort($champ, Request $request): Response {
+        $value = $request->get("sortValue");
+        $visites = $this->repository->findByData($champ, $value);
+        return $this->render("pages/voyages.html.twig", [
+                    "visites" => $visites
+        ]);
+    }
+
     /**
      * 
      * @var VisitesRepository
      */
     private $repository;
-    
+
     /**
      * 
      * @param VisitesRepository $repository
@@ -49,5 +59,4 @@ class VoyagesController extends AbstractController {
     public function __construct(VisitesRepository $repository) {
         $this->repository = $repository;
     }
-
 }

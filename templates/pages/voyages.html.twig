@@ -4,51 +4,98 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col"> Ville
-                    <a 
-                        class="btn btn-primary"
-                        href=" {{ path("villeSort", {champ: "ville", order: "ASC"}) }} "
-                        role="button"
-                        > < </a>
-                    <a 
-                        class="btn btn-primary"
-                        href=" {{ path("villeSort", {champ: "ville", order: "DESC"}) }} "
-                        role="button"
-                        > > </a>
+                <th scope="col">
+                    <div class="container pb-2">
+                        Ville
+                        <a 
+                            class="btn btn-primary"
+                            href=" {{ path("voyagesFilter", {champ: "ville", order: "ASC"}) }} "
+                            role="button"
+                            > < </a>
+                        <a 
+                            class="btn btn-primary"
+                            href=" {{ path("voyagesFilter", {champ: "ville", order: "DESC"}) }} "
+                            role="button"
+                            > > </a>
+                    </div>
+                    <form class="row g-3" method="post" action="{{ path("voyagesSort", {champ: "ville"}) }}">
+                        <div class="col-auto">
+                            <input type="text" name="sortValue" class="form-control">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-3">Filtrer</button>
+                        </div>
+                    </form>
                 </th>
-                <th scope="col"> Pays
-                    <a 
-                        class="btn btn-primary"
-                        href=" {{ path("villeSort", {champ: "pays", order: "ASC"}) }} "
-                        role="button"
-                        > < </a>
-                    <a 
-                        class="btn btn-primary"
-                        href=" {{ path("villeSort", {champ: "pays", order: "DESC"}) }} "
-                        role="button"
-                        > > </a></th>
-                <th scope="col"> Note
-                    <a 
-                        class="btn btn-primary"
-                        href=" {{ path("villeSort", {champ: "note", order: "ASC"}) }} "
-                        role="button"
-                        > < </a>
-                    <a 
-                        class="btn btn-primary"
-                        href=" {{ path("villeSort", {champ: "note", order: "DESC"}) }} "
-                        role="button"
-                        > > </a></th>
-                <th scope="col"> Date
-                    <a 
-                        class="btn btn-primary"
-                        href=" {{ path("villeSort", {champ: "datecreation", order: "ASC"}) }} "
-                        role="button"
-                        > < </a>
-                    <a 
-                        class="btn btn-primary"
-                        href=" {{ path("villeSort", {champ: "datecreation", order: "DESC"}) }} "
-                        role="button"
-                        > > </a></th>
+                <th scope="col"> 
+                    <div class="container pb-2">
+                        Pays
+                        <a 
+                            class="btn btn-primary"
+                            href=" {{ path("voyagesFilter", {champ: "pays", order: "ASC"}) }} "
+                            role="button"
+                            > < </a>
+                        <a 
+                            class="btn btn-primary"
+                            href=" {{ path("voyagesFilter", {champ: "pays", order: "DESC"}) }} "
+                            role="button"
+                            > > </a>
+                    </div>
+                    <form class="row g-3" method="post" action="{{ path("voyagesSort", {champ: "pays"}) }}">
+                        <div class="col-auto">
+                            <input type="text" name="sortValue" class="form-control">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-3">Filtrer</button>
+                        </div>
+                    </form>
+                </th>
+                <th scope="col"> 
+                    <div class="container pb-2">
+                        Note
+                        <a 
+                            class="btn btn-primary"
+                            href=" {{ path("voyagesFilter", {champ: "note", order: "ASC"}) }} "
+                            role="button"
+                            > < </a>
+                        <a 
+                            class="btn btn-primary"
+                            href=" {{ path("voyagesFilter", {champ: "note", order: "DESC"}) }} "
+                            role="button"
+                            > > </a>
+                    </div>
+                    <form class="row g-3" method="post" action="{{ path("voyagesSort", {champ: "note"}) }}">
+                        <div class="col-auto">
+                            <input type="text" name="sortValue" class="form-control">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-3">Filtrer</button>
+                        </div>
+                    </form>
+                </th>
+                <th scope="col"> 
+                    <div class="container pb-2">
+                        Date
+                        <a 
+                            class="btn btn-primary"
+                            href=" {{ path("voyagesFilter", {champ: "datecreation", order: "ASC"}) }} "
+                            role="button"
+                            > < </a>
+                        <a 
+                            class="btn btn-primary"
+                            href=" {{ path("voyagesFilter", {champ: "datecreation", order: "DESC"}) }} "
+                            role="button"
+                            > > </a>
+                    </div>
+                    <form class="row g-3" method="post" action="{{ path("voyagesSort", {champ: "datecreation"}) }}">
+                        <div class="col-auto">
+                            <input type="text" name="sortValue" class="form-control">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-3">Filtrer</button>
+                        </div>
+                    </form>
+                </th>
             </tr>
         </thead>
         <tbody>

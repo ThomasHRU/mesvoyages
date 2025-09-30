@@ -26,13 +26,31 @@ class VisitesRepository extends ServiceEntityRepository {
                 $champ == null || $champ == "" ||
                 $order == null || ($order != "ASC" && $order != "DESC")
         ) {
-            
+
             return null;
         }
 
         return $this->createQueryBuilder("visitesTable")
-            ->orderBy("visitesTable.".$champ, $order)
-            ->getQuery()
-            ->getResult();
+                        ->orderBy("visitesTable." . $champ, $order)
+                        ->getQuery()
+                        ->getResult();
+    }
+
+    /**
+     * 
+     * @param type $champ
+     * @param type $value
+     * @return Visites[]
+     */
+    public function findByData($champ, $value): array {
+        if ($value == "") {
+            return $this->findAllOrderBy($champ, "ASC");
+        }
+
+        return $this->createQueryBuilder("visitesTable")
+                        ->where("visitesTable." . $champ . " = :valeur")
+                        ->setParameter(":valeur", $value)
+                        ->getQuery()
+                        ->getResult();
     }
 }
