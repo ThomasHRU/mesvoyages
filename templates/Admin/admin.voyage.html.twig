@@ -1,0 +1,49 @@
+{% extends "baseadmin.html.twig" %}
+
+{% block body %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+
+                <th scope="col">
+                    <div class="container pb-2">
+                        Ville
+                    </div>
+                </th>
+
+                <th scope="col"> 
+                    <div class="container pb-2">
+                        Pays
+                    </div>
+                </th>
+
+                <th scope="col"> 
+                    <div class="container pb-2">
+                        Date
+                    </div>
+                </th>
+
+                <th scope="col"> 
+                    <div class="container pb-2">
+                        Action
+                    </div>
+                </th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for visite in visites %}
+                <tr>
+                    <th scope="row"> <a href="{{ path("show", {id: visite.id}) }}"> {{ visite.ville }} </a> </th>
+                    <td> {{ visite.pays }} </td>
+                    <td> {{ visite.datecreationstring }} </td>
+                    <td>
+                        <a href="#" class="btn btn-secondary"> Editer </a>
+                        <a onclick="return confirm('Êtes-vous sûr de vouloir supprimer {{ visite.ville }} ?');" href="{{ path("adminDelete", {id: visite.id}) }}" class="btn btn-danger"> Supprimer </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
