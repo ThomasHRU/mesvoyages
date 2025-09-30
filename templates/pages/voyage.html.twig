@@ -1,0 +1,15 @@
+{% extends "basefront.html.twig" %}
+
+{% block body %}
+    <h1 class="m-3">{{ visite.ville }}</h1>
+
+    <ul class="list-group list-group-flush mb-3">
+        <li class="list-group-item">Pays : {{ visite.pays }}</li>
+        <li class="list-group-item">Note : {{ visite.note }}/20</li>
+        <li class="list-group-item">Avis : {{ visite.avis }}</li>
+        <li class="list-group-item">Temp. Min : {{ visite.tempmin }}°C</li>
+        <li class="list-group-item">Temp. Max : {{ visite.tempmax }}°C</li>
+    </ul>
+
+    <p class="m-3 mt-5">Créé le {{ visite.datecreationstring }}</p>
+{% endblock %}

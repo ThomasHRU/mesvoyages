@@ -46,6 +46,14 @@ class VoyagesController extends AbstractController {
         ]);
     }
 
+    #[Route('voyage/{id}', name: "show")]
+    public function show($id): Response {
+        $visite = $this->repository->find($id);
+        return $this->render("pages/voyage.html.twig", [
+                    "visite" => $visite
+        ]);
+    }
+
     /**
      * 
      * @var VisitesRepository

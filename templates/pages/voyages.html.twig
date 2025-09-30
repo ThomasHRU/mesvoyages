@@ -4,6 +4,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                
                 <th scope="col">
                     <div class="container pb-2">
                         Ville
@@ -27,6 +28,7 @@
                         </div>
                     </form>
                 </th>
+                
                 <th scope="col"> 
                     <div class="container pb-2">
                         Pays
@@ -50,6 +52,7 @@
                         </div>
                     </form>
                 </th>
+                
                 <th scope="col"> 
                     <div class="container pb-2">
                         Note
@@ -73,6 +76,7 @@
                         </div>
                     </form>
                 </th>
+                
                 <th scope="col"> 
                     <div class="container pb-2">
                         Date
@@ -96,12 +100,14 @@
                         </div>
                     </form>
                 </th>
+                
             </tr>
         </thead>
+        
         <tbody>
             {% for visite in visites %}
                 <tr>
-                    <th scope="row"> <a href="#"> {{ visite.ville }} </a> </th>
+                    <th scope="row"> <a href="{{ path("show", {id: visite.id}) }}"> {{ visite.ville }} </a> </th>
                     <td> {{ visite.pays }} </td>
                     <td>
                         <strong>
