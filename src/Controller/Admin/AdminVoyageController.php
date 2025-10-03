@@ -49,6 +49,23 @@ class AdminVoyageController extends AbstractController {
                     "formVisite" => $formVisite->createView()
         ]);
     }
+    
+    #[Route("/admin/add", name: "adminAdd")]
+    public function add(Request $request) : Response {
+        $visite = new Visites();
+        $formVisite = $this->createForm(VisiteType::class, $visite);
+        
+        $formVisite->handleRequest($request);
+        if ($formVisite->isSubmitted() && $formVisite->isValid()) {
+            $this->repository->add($visite);
+            return $this->redirectToRoute("admin");
+        }
+
+        return $this->render("Admin/admin.voyage.add.html.twig", [
+                    "visite" => $visite,
+                    "formVisite" => $formVisite->createView()
+        ]);
+    }
 
     /**
      * 
