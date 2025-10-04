@@ -9,6 +9,12 @@
         <li class="list-group-item">Avis : {{ visite.avis }}</li>
         <li class="list-group-item">Temp. Min : {{ visite.tempmin }}°C</li>
         <li class="list-group-item">Temp. Max : {{ visite.tempmax }}°C</li>
+        <li class="list-group-item">
+            <p>Environnements :</p>
+            {% for environnement in visite.environnements %}
+                {{ environnement.nom }}
+            {% endfor %}
+        </li>
     </ul>
 
     <p class="m-3 mt-5">Créé le {{ visite.datecreationstring }}</p>
